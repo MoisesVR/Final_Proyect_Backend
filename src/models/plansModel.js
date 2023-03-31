@@ -2,7 +2,7 @@ const pool = require("../db/db").pool;
 
 const getAllPlans = async () => {
     try {
-        const consult = "SELECT * FROM plans";
+        const consult = "SELECT * FROM plans WHERE id !=1";
         const result = await pool.query(consult);
         const rowCount = result.rowCount;
 

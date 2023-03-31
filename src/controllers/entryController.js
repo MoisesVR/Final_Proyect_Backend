@@ -1,5 +1,5 @@
 const { showError } = require('../helpers/showError');
-const { createEntry, getEntryId, dropEntry, getAllEntry } = require('../models/entryModel');
+const { createEntry, getEntryId, dropEntry, getAllEntry, getAllEntryUser } = require('../models/entryModel');
 
 const entryRegister = async (req, res) => {
     try {
@@ -12,7 +12,7 @@ const entryRegister = async (req, res) => {
 }
 
 const entryDelete = async (req, res) => {
-    const { id } = req.body;
+    const { id } = req.params;
     try {
         const entry = await getEntryId(id)
         if (entry[0] === undefined) {
@@ -53,4 +53,25 @@ const dashboardUserEntry = async (req, res) => {
     }
 }
 
-module.exports = { entryRegister, entryDelete, dashboardUserEntry };
+const dashboardEntryUserRegistered = async (req, res) => {
+    const {id} = req.body;
+    try {
+        const entry = await getAllEntryUser(id)
+        if (entry === null) {
+            res.status(404).json({
+                message: "No hay reservas",
+                code: 404,
+            });
+        } else {
+            res.status(200).json({
+                message: "Aqui estan las reservas",
+                code: 200,
+                entry,
+            });
+        }
+    } catch (error) {
+        showError(res, error)
+    }
+}
+
+module.exports = { entryRegister, entryDelete, dashboardUserEntry, dashboardEntryUserRegistered };

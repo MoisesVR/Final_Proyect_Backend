@@ -3,7 +3,7 @@ const { getUser } = require('../models/usersModel');
 const bcrypt = require("bcryptjs");
 const { getJwtToken } = require('../helpers/createToken');
 
-const loginUser = async (req, res) => {
+const loginUser = async (req, res) => { 
     const { email, password } = req.body;
     email.toLowerCase()
     try {
@@ -27,6 +27,7 @@ const loginUser = async (req, res) => {
                     message: "Bienvenido, has iniciado sesión",
                     code: 200,
                     token,
+                    user,
                 });
             }
         }

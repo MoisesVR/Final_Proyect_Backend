@@ -3,9 +3,12 @@ const bcrypt = require("bcryptjs");
 
 const getUseVerify = async (email) => {
     try {
-        const consult = "SELECT * FROM users WHERE email = $1";
-        const values = [email];
-        const result = await pool.query(consult, values);
+        const query = {
+            text: "SELECT * FROM users WHERE email = $1",
+            values: [email],
+        }
+        const result = await pool.query(query);
+
         const rowCount = result.rowCount;
 
         if (!rowCount) {
@@ -70,10 +73,10 @@ const getUserId = async (id) => {
     }
 };
 
-const createUser = async (nombre, email, password, direccion, forma_de_pago, id_user_type, id_plan ) => {
+const createUser = async (nombre, email, password, direccion, forma_de_pago, id_user_type, id_plan) => {
     try {
         const passwordEncrypted = bcrypt.hashSync(password);
-        const consult = "INSERT INTO users ( name, email, password, address, payment_type, id_user_type, id_plan) VALUES ($1,$2,$3,$4,$5,$6, $7) RETURNING *";
+        const consult = "INSERT INTO users ( name, email, password, address, payment_type, id_user_type, id_plan) VALUES ($1,$2,$3,$4,$5,$6,$7) RETURNING *";
         const values = [nombre, email, passwordEncrypted, direccion, forma_de_pago, id_user_type, id_plan];
         const result = await pool.query(consult, values);
         const rowCount = result.rowCount;

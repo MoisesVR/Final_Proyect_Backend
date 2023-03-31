@@ -13,10 +13,26 @@ const getAllEntry = async () => {
 
 }
 
+const getAllEntryUser = async (id) => {
+    try {
+        const query = {
+            text: "SELECT entry.date, entry.hour, entry.id_user, users.id FROM entry INNER JOIN users ON entry.id_user = $1 AND users.id = $1",
+            values: [id],
+        }
+        const result = await pool.query(query);
+
+        const rowCount = result.rowCount;
+
+        return result.rows;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 const getEntryId = async (id) => {
 
     try {
-        const consult = "SELECT id FROM entry where id = $1";
+        const consult = "SELECT id FROM entry where id_user = $1";
         const values = [id];
         const result = await pool.query(consult, values);
         const rowCount = result.rowCount;
@@ -56,7 +72,7 @@ const createEntry = async (hora, fecha, id_user) => {
 
 const dropEntry = async (id) => {
     try {
-        const consult = "DELETE from entry where id= $1";
+        const consult = "DELETE from entry where id_user= $1";
         const values = [id];
         const result = await pool.query(consult, values);
         const rowCount = result.rowCount;
@@ -69,8 +85,8 @@ const dropEntry = async (id) => {
         return result.rows
     } catch (error) {
         console.log(error);
-    }   
+    }
 
 }
 
-module.exports = { getAllEntry, getEntryId, createEntry, dropEntry };
+module.exports = { getAllEntry, getEntryId, createEntry, dropEntry, getAllEntryUser };

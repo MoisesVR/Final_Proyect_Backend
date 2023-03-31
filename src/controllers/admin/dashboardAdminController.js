@@ -22,7 +22,7 @@ const dashboardAdminUsers = async (req, res) => {
 }
 
 const dashboardAdminUserDelete = async (req, res) => {
-    const { id } = req.body;
+    const { id } = req.params;
     try {
         const users = await getUserId(id)
         if (users[0] === undefined) {

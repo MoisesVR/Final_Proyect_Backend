@@ -33,10 +33,10 @@ const getClassId = async (id) => {
 
 }
 
-const createClass = async (nombre, img, alt, descripcion, cupo, user_in_charge) => {
+const createClass = async (nombre, img, alt, descripcion, cupo ) => {
     try {
-        const consult = "INSERT INTO class ( name, img, alt, description, cupo, user_in_charge) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *";
-        const values = [nombre, img, alt, descripcion, cupo, user_in_charge];
+        const consult = "INSERT INTO class ( name, img, alt, description, cupo ) VALUES ($1, $2, $3, $4, $5) RETURNING *";
+        const values = [nombre, img, alt, descripcion, cupo ];
         const result = await pool.query(consult, values);
         const rowCount = result.rowCount;
 
@@ -53,9 +53,9 @@ const createClass = async (nombre, img, alt, descripcion, cupo, user_in_charge) 
 
 }
 
-const modifyClass = async (id, nombre, img, alt, descripcion, cupo, user_in_charge) => {
+const modifyClass = async (id, nombre, img, alt, descripcion, cupo ) => {
     try {
-        const consult = `UPDATE class SET name='${nombre}', img='${img}', alt='${alt}', description='${descripcion}', cupo=${cupo}, user_in_charge=${user_in_charge} WHERE id=${id};`;
+        const consult = `UPDATE class SET name='${nombre}', img='${img}', alt='${alt}', description='${descripcion}', cupo=${cupo} WHERE id=${id};`;
         const values = [];
         const result = await pool.query(consult, values);
         const rowCount = result.rowCount;

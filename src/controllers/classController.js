@@ -3,8 +3,8 @@ const { createClass, getAllClass, getClassId, dropClass, modifyClass } = require
 
 const classRegister = async (req, res) => {
     try {
-        const { nombre, img, alt, descripcion, cupo, user_in_charge } = req.body;
-        const newClass = await createClass(nombre, img, alt, descripcion, cupo, user_in_charge)
+        const { nombre, img, alt, descripcion, cupo } = req.body;
+        const newClass = await createClass(nombre, img, alt, descripcion, cupo )
         res.json(newClass);
     } catch (error) {
         console.log(error)
@@ -13,8 +13,8 @@ const classRegister = async (req, res) => {
 
 const classModify = async (req, res) => {
     try {
-        const { id, nombre, img, alt, descripcion, cupo, user_in_charge} = req.body;
-        const classModificar = await modifyClass(id, nombre, img, alt, descripcion, cupo, user_in_charge)
+        const { id, nombre, img, alt, descripcion, cupo } = req.body;
+        const classModificar = await modifyClass(id, nombre, img, alt, descripcion, cupo )
         res.status(200).json({
             message: "Clase modifica con exito",
         })

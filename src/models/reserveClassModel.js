@@ -2,7 +2,7 @@ const pool = require("../db/db").pool;
 
 const getAllReserveClass = async () => {
     try {
-        const consult = "SELECT * FROM class_reserve";
+        const consult = "SELECT * FROM class";
         const result = await pool.query(consult);
         const rowCount = result.rowCount;
 
@@ -14,9 +14,11 @@ const getAllReserveClass = async () => {
 
 const getReserveClassId = async (id) => {
     try {
-        const consult = "SELECT id FROM class_reserve where id = $1";
-        const values = [id];
-        const result = await pool.query(consult, values);
+        const query = {
+            text: "SELECT class_reserve.date, class_reserve.hour, class.name, class_reserve.id FROM class_reserve INNER JOIN class ON class.id = class_reserve.id_class WHERE id_user = $1",
+            values: [parseInt(id)],
+        }
+        const result = await pool.query(query);
         const rowCount = result.rowCount;
 
         if (!rowCount) {
