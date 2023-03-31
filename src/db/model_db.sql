@@ -16,7 +16,7 @@ CREATE TABLE entry( id SERIAL PRIMARY KEY, date DATE NOT NULL, hour TIME NOT NUL
 
 CREATE TABLE card( id SERIAL PRIMARY KEY, titular VARCHAR(200) NOT NULL, num_tarjeta BIGINT NOT NULL, due_date DATE NOT NULL, security_code INT NOT NULL, id_user INT NOT NULL, FOREIGN KEY (id_user) REFERENCES users(id));
 
-INSERT INTO plans(name, duration, description, cost) VALUES ("Sin Plan", "Indefinido", "Sin membresia", 0);
+INSERT INTO plans(name, duration, description, cost) VALUES ('Sin Plan', 'Indefinido', 'Sin membresia', 0);
 INSERT INTO plans(name, duration, description, cost) VALUES('Anual', '12 meses', 'Membresía con duración de 12 meses con posibilidad de congelación, acceso sin limites todos los dias de vigencia de tu plan, acceso ilimitado a todas las clases dirigidas durante la vigencia del plan, evaluacion antropometrica con sistema inbody de ultima generacion, programa de entrenamiento enfocado a tus objetivos.', 120000);
 INSERT INTO plans(name, duration, description, cost) VALUES('Semestral', '6 mes', 'Membresía con duración de 6 meses con posibilidad de congelación, acceso sin limites todos los dias de vigencia de tu plan, acceso ilimitado a todas las clases dirigidas durante la vigencia del plan, evaluacion antropometrica con sistema inbody de ultima generacion, programa de entrenamiento enfocado a tus objetivos.', 70000);
 INSERT INTO plans(name, duration, description, cost) VALUES('Trimestral', '3 meses', 'Membresía con duración de 3 meses con posibilidad de congelación, acceso sin limites todos los dias de vigencia de tu plan, acceso ilimitado a todas las clases dirigidas durante la vigencia del plan, evaluacion antropometrica con sistema inbody de ultima generacion, programa de entrenamiento enfocado a tus objetivos.', 40000);

@@ -6,8 +6,9 @@ const pool = new Pool({
     host: process.env.HOST,
     password: process.env.PASS,
     database: process.env.DATABASE,
-    port: 5432,
-    allowExitOnIdle: true
+    port: process.env.DB_PORT,
+    allowExitOnIdle: true,
+    ssl: {rejectUnauthorized: false}
 });
-
+/* port: 5432, */
 module.exports = { pool }
