@@ -18,7 +18,7 @@ const getAllEntry = async () => {
 const getAllEntryUser = async (id) => {
     try {
         const query = {
-            text: "SELECT id, date, hour FROM entry WHERE id_user = $1", /* , SELECT entry.date, entry.hour, entry.id_user, users.id FROM entry INNER JOIN users ON entry.id_user = $1 AND users.id = $1 */
+            text: "SELECT id, date, hour FROM entry WHERE id_user = $1",
             values: [parseInt(id)],
         }
         const result = await pool.query(query);
@@ -42,12 +42,12 @@ const getEntryId = async (id) => {
         const result = await pool.query(query);
         const rowCount = result.rowCount;
 
-/*         if (!rowCount) {
+        if (!rowCount) {
             throw {
                 code: 404,
                 message: "No se encontró ningun ingreso con estas credenciales",
             };
-        } */
+        }
         return result.rows;
     } catch (error) {
         console.log(error);

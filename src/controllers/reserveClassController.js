@@ -28,22 +28,6 @@ const reserveClassDelete = async (req, res) => {
                 reserveClass,
             })
         }
-        /* const reserveClass = await getReserveClassId(id)
-        if (reserveClass === undefined) {
-            res.status(404).json({
-                message: "Reserva de Clase no encontrada Clase",
-                code: 404,
-                id,
-            });
-        } else {
-            dropReserveClass(id)
-            res.status(200).json({
-                message: "Reserva de Clase eliminada correctamente",
-                code: 200,
-                id,
-                reserveClass,
-            });
-        } */
     } catch (error) {
         showError(res, error);
     }
