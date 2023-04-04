@@ -12,9 +12,9 @@ const reserveClassRegister = async (req, res) => {
 }
 
 const reserveClassDelete = async (req, res) => {
-    const { id } = req.params;
+    const { id, id_user } = req.params;
     try {
-        const reserveClass = await getReserveClassId(id)
+        const reserveClass = await getReserveClassId(id, id_user)
         if (reserveClass === undefined) {
             res.status(404).json({
                 message: "Reserva de Clase no encontrada",

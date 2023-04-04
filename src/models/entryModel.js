@@ -35,7 +35,7 @@ const getAllEntryUser = async (id) => {
 const getEntryId = async (id) => {
 
     try {
-        const consult = "SELECT * FROM entry where id_user = $1";
+        const consult = "SELECT id FROM entry where id_user = $1";
         const values = [id];
         const result = await pool.query(consult, values);
         const rowCount = result.rowCount;
