@@ -54,7 +54,8 @@ const dashboardUserEntry = async (req, res) => {
 }
 
 const dashboardEntryUserRegistered = async (req, res) => {
-    const {id} = req.body;
+    const data = req.params;
+    console.log("id entry->",data)
     try {
         const entry = await getAllEntryUser(id)
         if (entry === null) {

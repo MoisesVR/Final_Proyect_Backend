@@ -24,7 +24,7 @@ const plansModify = async (req, res) => {
 }
 
 const plansDelete = async (req, res) => {
-    const { id } = req.body;
+    const {id} = req.params;
     try {
         const plans = await getPlansId(id)
         if (plans[0] === undefined) {

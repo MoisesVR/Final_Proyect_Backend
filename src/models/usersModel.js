@@ -2,6 +2,7 @@ const pool = require("../db/db").pool;
 const bcrypt = require("bcryptjs");
 
 const getUseVerify = async (email) => {
+    console.log("email->", email)
     try {
         const query = {
             text: "SELECT * FROM users WHERE email = $1",
@@ -56,7 +57,7 @@ const getUser = async (email, password) => {
 
 const getUserId = async (id) => {
     try {
-        const consult = "SELECT id FROM users where id = $1";
+        const consult = "SELECT * FROM users where id = $1";
         const values = [id];
         const result = await pool.query(consult, values);
         const rowCount = result.rowCount;

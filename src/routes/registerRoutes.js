@@ -25,16 +25,16 @@ router.get('/dashboard/planes', dashboardAdminPlans, isLogin, getUseVerified);
 router.get('/dashboard/usuarios', dashboardAdminUsers, isLogin, getUseVerified);  
 router.delete('/dashboard/usuarios/:id', dashboardAdminUserDelete, isLogin, getUseVerified); 
 router.delete('/dashboard/clases', classDelete, isLogin, getUseVerified);    
-router.delete('/dashboard/planes', plansDelete, isLogin, getUseVerified);    
+router.delete('/dashboard/planes/:id', plansDelete, isLogin, getUseVerified);    
 router.put('/dashboard/planes', plansModify, isLogin, getUseVerified);       
 router.put('/dashboard/clases', classModify, isLogin, getUseVerified);   
 
-router.post('/dashboar_user/ingresos', entryRegister, isLogin, getUseVerified);  
+router.post('/dashboard_user/ingresos', entryRegister, isLogin, getUseVerified);  
 router.post('/dashboard_user/tarjeta', cardRegister, isLogin, getUseVerified);  
 router.post('/dashboard_user/clases', reserveClassRegister, isLogin, getUseVerified);
 router.post('/dashboard_user/usuarios', userGetted, isLogin, getUseVerified);    
-router.post('/dashboard_user/ingresos', dashboardEntryUserRegistered, isLogin, getUseVerified);   
 router.get('/dashboard_user/tarjeta', dashboardUserCard, isLogin, getUseVerified);  
+router.get('/dashboard_user/ingresos/:id', dashboardEntryUserRegistered, isLogin, getUseVerified);   
 router.get('/dashboard_user/clases/:id', dashboardUserReserveClass, isLogin, getUseVerified);
 router.get('/dashboard_user/clases', dashboardUserReserveAllClass, isLogin, getUseVerified)    
 router.delete('/dashboard_user/ingresos/:id', entryDelete, isLogin, getUseVerified); 
