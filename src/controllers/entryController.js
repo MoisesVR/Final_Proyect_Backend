@@ -71,7 +71,7 @@ const dashboardEntryUserRegistered = async (req, res) => {
             });
         }
     } catch (error) {
-        showError(res, error)
+        console.log("error", error)
     }
 }
 
