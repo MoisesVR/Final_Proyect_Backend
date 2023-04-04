@@ -12,12 +12,12 @@ const getAllReserveClass = async () => {
     }
 }
 
-const getReserveClassId = async (id, id_user) => {
+const getReserveClassId = async (id) => {
     try {
         const query = {
             /* text: "SELECT class_reserve.id_user, class_reserve.date, class_reserve.hour, class.name, class_reserve.id FROM class_reserve INNER JOIN class ON class.id = class_reserve.id_class WHERE class_reserve.id_user = $1", */
             text: "SELECT class_reserve.id_class, class_reserve.id, class_reserve.date, class_reserve.hour, class.name FROM class_reserve INNER JOIN class ON class.id = class_reserve.id_class WHERE class_reserve.id_user = $1;",
-            values: [id_user],
+            values: [id],
         }
         const result = await pool.query(query);
         const rowCount = result.rowCount;
@@ -53,10 +53,10 @@ const createReserveClass = async (fecha, hora, id_user, id_class) => {
     }
 }
 
-const dropReserveClass = async (id,id_user) => {
+const dropReserveClass = async (id) => {
     try {
-        const consult = "DELETE from class_reserve where id= $1 AND id_user = $2";
-        const values = [id, id_user];
+        const consult = "DELETE from class_reserve where id= $1";
+        const values = [id];
         const result = await pool.query(consult, values);
         const rowCount = result.rowCount;
 

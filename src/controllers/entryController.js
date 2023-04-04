@@ -12,9 +12,9 @@ const entryRegister = async (req, res) => {
 }
 
 const entryDelete = async (req, res) => {
-    const { id, id_user} = req.params;
+    const { id } = req.params;
     try {
-        const entry = await getEntryId(id_user)
+        const entry = await getEntryId(id)
         if (entry === undefined) {
             res.status(404).json({
                 message: "Ingreso no encontrado",

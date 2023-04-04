@@ -12,9 +12,9 @@ const reserveClassRegister = async (req, res) => {
 }
 
 const reserveClassDelete = async (req, res) => {
-    const { id, id_user } = req.params;
+    const { id } = req.params;
     try {
-        const reserveClass = await getReserveClassId(id, id_user)
+        const reserveClass = await getReserveClassId(id)
         if (reserveClass === undefined) {
             res.status(404).json({
                 message: "Reserva de Clase no encontrada",
@@ -22,7 +22,7 @@ const reserveClassDelete = async (req, res) => {
                 id,
             });
         } else {
-/*             dropReserveClass(id) */
+            dropReserveClass(id)
             res.status(200).json({
                 message: "Reserva de Clase eliminada correctamente",
                 code: 200,
@@ -39,7 +39,7 @@ const dashboardUserReserveAllClass = async (req,res) => {
         const reserveClass = await getAllReserveClass()
         if (reserveClass === undefined) {
             res.status(404).json({
-                message: "No hay reservas de clases",
+                message: "No hay reservas de clases aqui entra",
                 code: 404,
             });
         } else {
