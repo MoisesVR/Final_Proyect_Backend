@@ -42,12 +42,12 @@ const getEntryId = async (id) => {
         const result = await pool.query(query);
         const rowCount = result.rowCount;
 
-        if (!rowCount) {
+/*         if (!rowCount) {
             throw {
                 code: 404,
                 message: "No se encontró ningun ingreso con estas credenciales",
             };
-        }
+        } */
         return result.rows;
     } catch (error) {
         console.log(error);
