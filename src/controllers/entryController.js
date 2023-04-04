@@ -15,12 +15,10 @@ const entryDelete = async (req, res) => {
     const { id } = req.params;
     try {
         const entry = await getEntryId(id)
-        /* cambio entry[0] === undefined */
         if (entry === undefined) {
             res.status(404).json({
                 message: "Ingreso no encontrado",
                 code: 404,
-                entry,
             });
         } else {
             dropEntry(id)

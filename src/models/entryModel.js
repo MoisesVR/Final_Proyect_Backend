@@ -75,7 +75,7 @@ const createEntry = async (hora, fecha, id_user) => {
 
 const dropEntry = async (id) => {
     try {
-        const consult = "DELETE from entry where id_user= $1";
+        const consult = "DELETE from entry where id= $1";
         const values = [id];
         const result = await pool.query(consult, values);
         const rowCount = result.rowCount;

@@ -15,11 +15,6 @@ const reserveClassDelete = async (req, res) => {
     const { id } = req.params;
     try {
         const reserveClass = await getReserveClassId(id)
-        {alert("id->", id)}
-        {console.log("id->",id)}
-        {alert("reserveClass->", reserveClass)}
-        {console.log("reserveClass->", reserveClass)}
-        /* cambio reserveClass[0] === undefined */
         if (reserveClass === undefined) {
             res.status(404).json({
                 message: "Reserva de Clase no encontrada",
