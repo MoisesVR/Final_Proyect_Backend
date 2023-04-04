@@ -83,7 +83,7 @@ const dropEntry = async (id) => {
         if (!rowCount)
             throw {
                 code: 404,
-                message: "Ingreso no encontrado",
+                message: "Ingreso no encontrado en el delete",
                 values,
             };
         return result.rows
