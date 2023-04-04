@@ -18,7 +18,7 @@ const getAllEntry = async () => {
 const getAllEntryUser = async (id) => {
     try {
         const query = {
-            text: "SELECT date, hour FROM entry WHERE id_user = $1", /* , SELECT entry.date, entry.hour, entry.id_user, users.id FROM entry INNER JOIN users ON entry.id_user = $1 AND users.id = $1 */
+            text: "SELECT id, date, hour FROM entry WHERE id_user = $1", /* , SELECT entry.date, entry.hour, entry.id_user, users.id FROM entry INNER JOIN users ON entry.id_user = $1 AND users.id = $1 */
             values: [parseInt(id)],
         }
         const result = await pool.query(query);

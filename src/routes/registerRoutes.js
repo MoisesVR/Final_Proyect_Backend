@@ -37,9 +37,9 @@ router.get('/dashboard_user/tarjeta', dashboardUserCard, isLogin, getUseVerified
 router.get('/dashboard_user/ingresos/:id', dashboardEntryUserRegistered, isLogin, getUseVerified);   
 router.get('/dashboard_user/clases/:id', dashboardUserReserveClass, isLogin, getUseVerified);
 router.get('/dashboard_user/clases', dashboardUserReserveAllClass, isLogin, getUseVerified);    
-router.delete('/dashboard_user/:id', entryDelete, isLogin, getUseVerified); 
+router.delete('/dashboard_user/ingresos/:id', entryDelete, isLogin, getUseVerified); 
 router.delete('/dashboard_user/tarjeta', cardDelete, isLogin, getUseVerified);   
-router.delete('/dashboard_user/:id', reserveClassDelete, isLogin, getUseVerified);    
+router.delete('/dashboard_user/clases/:id', reserveClassDelete, isLogin, getUseVerified);    
 router.put('/dashboard_user/datos', userModify, isLogin, getUseVerified);
 
 
