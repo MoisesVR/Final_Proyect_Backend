@@ -64,6 +64,7 @@ const dashboardUserReserveClass = async (req, res) => {
             res.status(404).json({
                 message: "No hay reservas de clases",
                 code: 404,
+                id,
             });
         } else {
             res.status(200).json({
