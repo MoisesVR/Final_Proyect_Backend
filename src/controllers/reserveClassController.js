@@ -49,7 +49,7 @@ const dashboardUserReserveAllClass = async (req, res) => {
             });
         }
     } catch (error) {
-        alert(error)
+        console.log("error", error)
     }
 }
 
