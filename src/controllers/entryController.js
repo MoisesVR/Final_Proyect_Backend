@@ -15,7 +15,7 @@ const entryDelete = async (req, res) => {
     const { id } = req.params;
     try {
         const entry = await getEntryId(id)
-        if (entry === undefined) {
+        if (entry[0] === undefined) {
             res.status(404).json({
                 message: "Ingreso no encontrado en el controller",
                 code: 404,
