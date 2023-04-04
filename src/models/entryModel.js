@@ -22,7 +22,6 @@ const getAllEntryUser = async (id) => {
             values: [parseInt(id)],
         }
         const result = await pool.query(query);
-        console.log("result model->", result)
 
         const rowCount = result.rowCount;
 
