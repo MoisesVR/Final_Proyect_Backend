@@ -3,7 +3,7 @@ const { createEntry, getEntryId, dropEntry, getAllEntry, getAllEntryUser } = req
 
 const entryRegister = async (req, res) => {
     try {
-        const { hora, fecha, id_user} = req.body;
+        const { hora, fecha, id_user } = req.body;
         const newEntry = await createEntry(hora, fecha, id_user)
         res.json(newEntry);
     } catch (error) {
@@ -15,10 +15,12 @@ const entryDelete = async (req, res) => {
     const { id } = req.params;
     try {
         const entry = await getEntryId(id)
-        if (entry[0] === undefined) {
+        /* cambio entry[0] === undefined */
+        if (entry.length === 0) {
             res.status(404).json({
                 message: "Ingreso no encontrado",
                 code: 404,
+                entry,
             });
         } else {
             dropEntry(id)
@@ -54,7 +56,7 @@ const dashboardUserEntry = async (req, res) => {
 }
 
 const dashboardEntryUserRegistered = async (req, res) => {
-    const {id} = req.params;
+    const { id } = req.params;
     console.log("id->", id)
     try {
         const entry = await getAllEntryUser(id)
