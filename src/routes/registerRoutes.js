@@ -24,7 +24,7 @@ router.get('/dashboard/clases', dashboardAdminClass, isLogin, getUseVerified);
 router.get('/dashboard/planes', dashboardAdminPlans, isLogin, getUseVerified);  
 router.get('/dashboard/usuarios', dashboardAdminUsers, isLogin, getUseVerified);  
 router.delete('/dashboard/usuarios/:id', dashboardAdminUserDelete, isLogin, getUseVerified); 
-router.delete('/dashboard/clases', classDelete, isLogin, getUseVerified);    
+router.delete('/dashboard/clases/:id', classDelete, isLogin, getUseVerified);    
 router.delete('/dashboard/planes/:id', plansDelete, isLogin, getUseVerified);    
 router.put('/dashboard/planes', plansModify, isLogin, getUseVerified);       
 router.put('/dashboard/clases', classModify, isLogin, getUseVerified);   

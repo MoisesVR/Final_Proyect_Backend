@@ -24,7 +24,7 @@ const classModify = async (req, res) => {
 }
 
 const classDelete = async (req, res) => {
-    const { id } = req.body;
+    const { id } = req.params;
     try {
         const clases = await getClassId(id)
         if (clases[0] === undefined) {
