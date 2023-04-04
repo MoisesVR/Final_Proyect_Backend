@@ -26,6 +26,7 @@ const entryDelete = async (req, res) => {
                 message: "Ingreso eliminado correctamente",
                 code: 200,
                 entry,
+                id,
             });
         }
     } catch (error) {

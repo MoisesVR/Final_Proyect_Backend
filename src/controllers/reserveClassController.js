@@ -26,6 +26,7 @@ const reserveClassDelete = async (req, res) => {
             res.status(200).json({
                 message: "Reserva de Clase eliminada correctamente",
                 code: 200,
+                id,
                 reserveClass,
             });
         }
