@@ -15,7 +15,8 @@ const getAllReserveClass = async () => {
 const getReserveClassId = async (id) => {
     try {
         const query = {
-            text: "SELECT class_reserve.id_user, class_reserve.date, class_reserve.hour, class.name, class_reserve.id FROM class_reserve INNER JOIN class ON class.id = class_reserve.id_class WHERE class_reserve.id_user = $1",
+            /* text: "SELECT class_reserve.id_user, class_reserve.date, class_reserve.hour, class.name, class_reserve.id FROM class_reserve INNER JOIN class ON class.id = class_reserve.id_class WHERE class_reserve.id_user = $1", */
+            text: "SELECT * FROM class_reserve INNER JOIN class ON class.id = class_reserve.id_class WHERE class_reserve.id_user = $1;",
             values: [id],
         }
         const result = await pool.query(query);
