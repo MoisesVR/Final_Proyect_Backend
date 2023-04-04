@@ -54,10 +54,11 @@ const dashboardUserEntry = async (req, res) => {
 }
 
 const dashboardEntryUserRegistered = async (req, res) => {
-    const data = req.params;
-    console.log("id entry->",data)
+    const {id} = req.params;
+    console.log("id->", id)
     try {
         const entry = await getAllEntryUser(id)
+        console.log("entry->", entry)
         if (entry === null) {
             res.status(404).json({
                 message: "No hay reservas",
