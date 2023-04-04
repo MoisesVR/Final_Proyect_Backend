@@ -59,7 +59,7 @@ const dashboardUserReserveClass = async (req, res) => {
     const  {id}   = req.params;
     console.log("id", id)
     try {
-        const reserveClass = await getAllReserveClassId(id)
+        const reserveClass = await getReserveClassId(id)
         if (reserveClass[0] === undefined) {
             res.status(404).json({
                 message: "No hay reservas de clases",
