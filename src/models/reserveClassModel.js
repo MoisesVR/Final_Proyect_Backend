@@ -55,7 +55,7 @@ const createReserveClass = async (fecha, hora, id_user, id_class) => {
 
 const dropReserveClass = async (id) => {
     try {
-        const consult = "DELETE from class_reserve where id= $1";
+        const consult = "DELETE from class_reserve where id_user= $1";
         const values = [id];
         const result = await pool.query(consult, values);
         const rowCount = result.rowCount;
