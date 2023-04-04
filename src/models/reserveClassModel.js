@@ -22,12 +22,12 @@ const getReserveClassId = async (id) => {
         const result = await pool.query(query);
         const rowCount = result.rowCount;
 
-        if (!rowCount) {
+/*         if (!rowCount) {
             throw {
                 code: 404,
                 message: "No se encontró reserva de clase con estas credenciales",
             };
-        }
+        } */
         return result.rows;
     } catch (error) {
         console.log(error);
@@ -55,15 +55,17 @@ const createReserveClass = async (fecha, hora, id_user, id_class) => {
 
 const dropReserveClass = async (id) => {
     try {
-        const consult = "DELETE from class_reserve where id= $1";
-        const values = [id];
-        const result = await pool.query(consult, values);
+        const query = {
+            text: "DELETE from class_reserve WHERE id= $1",
+            values: [id],
+        }
+        const result = await pool.query(query);
         const rowCount = result.rowCount;
 
         if (!rowCount)
             throw {
                 code: 404,
-                message: "Reserva de clase no encontrada",
+                message: "Reserva de clase no encontrada DROP",
             };
         return result.rows
     } catch (error) {
