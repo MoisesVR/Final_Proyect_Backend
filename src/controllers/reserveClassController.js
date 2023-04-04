@@ -15,7 +15,7 @@ const reserveClassDelete = async (req, res) => {
     const { id } = req.params;
     try {
         const reserveClass = await getReserveClassId(id)
-        if (reserveClass[0] === undefined) {
+        if (reserveClass === undefined) {
             res.status(404).json({
                 message: "Reserva de Clase no encontrada",
                 code: 404,
@@ -58,8 +58,8 @@ const dashboardUserReserveClass = async (req, res) => {
     const  {id}   = req.params;
     console.log("id", id)
     try {
-        const reserveClass = await getReserveClassId(id)
-        if (reserveClass === undefined) {
+        const reserveClass = await getAllReserveClass(id)
+        if (reserveClass[0] === undefined) {
             res.status(404).json({
                 message: "No hay reservas de clases",
                 code: 404,

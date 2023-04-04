@@ -1,6 +1,6 @@
 const pool = require("../db/db").pool;
 
-const getAllReserveClass = async () => {
+const getAllReserveClass = async (id) => {
     try {
         const consult = "SELECT * FROM class";
         const result = await pool.query(consult);
