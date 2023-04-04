@@ -19,7 +19,6 @@ const entryDelete = async (req, res) => {
             res.status(404).json({
                 message: "Ingreso no encontrado en el controller",
                 code: 404,
-                entry,
             });
         } else {
             dropEntry(id)
