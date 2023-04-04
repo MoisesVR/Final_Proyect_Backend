@@ -84,6 +84,7 @@ const dropEntry = async (id) => {
             throw {
                 code: 404,
                 message: "Ingreso no encontrado",
+                values,
             };
         return result.rows
     } catch (error) {

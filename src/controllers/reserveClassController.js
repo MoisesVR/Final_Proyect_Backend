@@ -20,6 +20,7 @@ const reserveClassDelete = async (req, res) => {
                 message: "Reserva de Clase no encontrada",
                 code: 404,
                 id,
+                reserveClass,
             });
         } else {
             dropReserveClass(id)
