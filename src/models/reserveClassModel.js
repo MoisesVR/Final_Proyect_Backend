@@ -16,7 +16,7 @@ const getReserveClassId = async (id) => {
     try {
         const query = {
             text: "SELECT class_reserve.id, class_reserve.date, class_reserve.hour, class.name, class_reserve.id FROM class_reserve INNER JOIN class ON class.id = class_reserve.id_class WHERE id_user = $1",
-            values: [parseInt(id)],
+            values: [id],
         }
         const result = await pool.query(query);
         const rowCount = result.rowCount;
