@@ -12,7 +12,7 @@ const entryRegister = async (req, res) => {
 }
 
 const entryDelete = async (req, res) => {
-    const { id, id_user } = req.params;
+    const { id, id_user} = req.params;
     try {
         const entry = await getEntryId(id_user)
         if (entry === undefined) {

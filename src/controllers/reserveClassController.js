@@ -22,7 +22,7 @@ const reserveClassDelete = async (req, res) => {
                 id,
             });
         } else {
-            dropReserveClass(id)
+/*             dropReserveClass(id) */
             res.status(200).json({
                 message: "Reserva de Clase eliminada correctamente",
                 code: 200,
