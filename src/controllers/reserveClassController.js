@@ -57,7 +57,6 @@ const dashboardUserReserveAllClass = async (req,res) => {
 
 const dashboardUserReserveClass = async (req, res) => {
     const  {id}   = req.params;
-    console.log("id", id)
     try {
         const reserveClass = await getReserveClassId(id)
         if (reserveClass[0] === undefined) {
